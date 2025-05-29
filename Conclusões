@@ -1,0 +1,48 @@
+i) Objetivos alcançados?
+Sim, os objetivos propostos foram atingidos. O sistema foi capaz de:
+• Medir o nível de água utilizando o sensor ultrassônico HC-SR04;
+• Exibir os dados em tempo real no display LCD 16x2 com comunicação I2C;
+• Simular a comunicação via protocolo MQTT através do console Serial (Serial
+Monitor do Wokwi);
+• Acionar automaticamente o atuador (bomba d’água simulada por um LED),
+comprovando a eficácia da lógica de controle implementada.
+ii) Principais problemas e soluções
+• Limitação da plataforma Wokwi: O ambiente não permite comunicação MQTT
+real. Para contornar essa limitação, foi adotada a simulação do envio dos dados
+em formato JSON pela porta Serial.
+• Calibração do sensor: Ajustes manuais foram necessários para adaptar a leitura
+à altura do reservatório simulado.
+• Estabilidade das leituras: Algumas variações ocorreram, sendo corrigidas com
+delay adequado no loop e verificação de consistência das medições.
+iii) Vantagens e desvantagens do projeto
+Vantagens:
+• Baixo custo de implementação;
+• Facilidade de replicação;
+• Aplicação de conceitos de Internet das Coisas (IoT);
+• Monitoramento remoto simulado;
+• Ambiente seguro para testes com Wokwi.
+Desvantagens:
+• Limitações da simulação (sem MQTT real);
+• Dependência de conexão Wi-Fi na aplicação física;
+• Necessidade de fonte de alimentação estável para ambientes reais;
+• Ausência de histórico de dados no estado atual do projeto.
+
+
+iv) Melhorias para o projeto
+• Implementação real do MQTT: Utilizar hardware físico (ex. ESP8266) para
+comunicação com broker MQTT real, possibilitando testes em ambiente real.
+• Interface de usuário: Criar uma interface web ou aplicativo móvel para
+monitoramento remoto dos dados em tempo real.
+• Sistema de alertas: Incluir notificações automáticas (via app, e-mail ou som)
+para avisar sobre níveis críticos de água ou falhas do sistema.
+• Armazenamento de dados: Gravar localmente ou na nuvem o histórico das
+medições para análises futuras.
+• Otimização energética: Reduzir o consumo de energia para uso com baterias,
+ideal para aplicações em campo sem energia elétrica constante.
+O sistema de monitoramento desenvolvido cumpriu com êxito os requisitos propostos,
+demonstrando-se eficaz na leitura e exibição do nível de água, no acionamento
+automático do atuador simulado e na simulação da comunicação MQTT. A utilização da
+plataforma Wokwi foi fundamental para validar a lógica de funcionamento sem a
+necessidade de hardware físico.
+A partir da experiência adquirida, conclui-se que o projeto é tecnicamente viável, com
+grande potencial de evolução para aplicações reais por meio das melhorias sugeridas.
