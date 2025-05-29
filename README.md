@@ -36,7 +36,6 @@ Este sistema realiza o monitoramento do nível de água em um reservatório util
 - Fonte 5V independente
 - Protoboard e jumpers
 
-Mais detalhes estão no arquivo [`descricao_hardware.md`](documentacao/descricao_hardware.md).
 
 ## 🌐 Comunicação via Internet (TCP/IP)
 
@@ -44,7 +43,7 @@ Mais detalhes estão no arquivo [`descricao_hardware.md`](documentacao/descricao
 - Protocolo de mensagens **MQTT**
 - Pacotes JSON simulados no console Serial da Wokwi
 
-Mais detalhes em [`comunicacao_mqtt.md`](documentacao/comunicacao_mqtt.md).
+
 
 ## 📊 Interface e Fluxo de Dados
 
@@ -54,7 +53,7 @@ Fluxo:
 3. Envio Serial (simulação MQTT)
 4. Ação automática (ligar bomba)
 
-Veja o fluxograma em [`diagrama_fluxo.png`](imagens/diagrama_fluxo.png)
+
 
 ## 📸 Imagens do Projeto
 
