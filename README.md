@@ -1,17 +1,25 @@
-# Sistema de Monitoramento do Nível de Água 💧
+# 💧 Sistema de Monitoramento do Nível de Água
 
-Projeto acadêmico desenvolvido por **Daniel Ferreira Bezerra** na Universidade Presbiteriana Mackenzie, sob orientação do professor André Luis de Oliveira.
+**Projeto acadêmico desenvolvido por Daniel Ferreira Bezerra**  
+**Universidade Presbiteriana Mackenzie**  
+**Orientação: Prof. André Luis de Oliveira**
+
+---
 
 ## 📌 Descrição do Projeto
 
-Este sistema realiza o monitoramento do nível de água em um reservatório utilizando um sensor ultrassônico e um microcontrolador Arduino. As leituras são exibidas em um display LCD e enviadas via protocolo MQTT através do módulo ESP8266. Quando o nível de água está abaixo do mínimo configurado, uma bomba de água é acionada automaticamente.
+Este projeto propõe o desenvolvimento de um sistema embarcado para **monitoramento automatizado do nível de água** em reservatórios. Utiliza um sensor ultrassônico HC-SR04 e um microcontrolador **Arduino Uno**, em conjunto com um módulo **ESP8266** para envio remoto dos dados via protocolo **MQTT**.
 
-## 🚀 Como Reproduzir
+O nível de água é exibido em tempo real em um display LCD 16x2 com interface I2C, e as leituras são transmitidas por Wi-Fi em formato JSON simulado. Caso o nível detectado fique abaixo de um limite mínimo, o sistema aciona automaticamente uma bomba de água (simulada por um LED) como resposta preventiva.
 
-1. Clone o repositório:
+---
+
+## 🚀 Como Executar
+
+1. Clone este repositório:
    ```bash
    git clone https://github.com/seu-usuario/sistema-monitoramento-nivel-agua.git
-   ```
+
 
 2. Abra o arquivo `codigo/sistema_nivel_agua.ino` na IDE do Arduino.
 
@@ -28,36 +36,46 @@ Este sistema realiza o monitoramento do nível de água em um reservatório util
 
 ## 🧰 Hardware Utilizado
 
-- Arduino Uno
-- Sensor Ultrassônico HC-SR04
-- Módulo ESP8266
-- Display LCD 16x2 com I2C
-- Bomba de água (simulada com LED)
-- Fonte 5V independente
-- Protoboard e jumpers
+Arduino Uno
+
+Sensor Ultrassônico HC-SR04
+
+Módulo Wi-Fi ESP8266
+
+Display LCD 16x2 com interface I2C
+
+Bomba d'água (simulada por LED)
+
+Fonte de alimentação 5V independente
+
+Protoboard e jumpers
 
 
 ## 🌐 Comunicação via Internet (TCP/IP)
 
-- Comunicação via Wi-Fi utilizando o **ESP8266**
-- Protocolo de mensagens **MQTT**
-- Pacotes JSON simulados no console Serial da Wokwi
+Conectividade via Wi-Fi (ESP8266)
+
+Protocolo de mensagens: MQTT (utilizando broker.hivemq.com)
+
+Publicação e subscrição em tópicos específicos
+
+Mensagens em formato JSON (simulação no console Serial da Wokwi)
 
 
 
 ## 📊 Interface e Fluxo de Dados
 
-Fluxo:
-1. Leitura com HC-SR04
-2. Processamento no Arduino
-3. Envio Serial (simulação MQTT)
-4. Ação automática (ligar bomba)
+Medição do nível com o HC-SR04
 
+Processamento no Arduino Uno
 
+Exibição no LCD I2C
 
-## 📸 Imagens do Projeto
+Envio via MQTT para broker público
 
-Veja na pasta `/imagens`.
+Ação automática com base no nível (acionamento de bomba)
+
+Controle remoto adicional de LEDs via MQTT
 
 ## 📃 Licença
 
