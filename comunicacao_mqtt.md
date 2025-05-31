@@ -8,22 +8,28 @@
 
 ## 2. Protocolo MQTT
 
-- Cliente: ESP8266
-- Broker: Mosquitto (simulado via Serial na Wokwi)
-- Tópico publicado: `nivel/agua`
+- Cliente: ESP32
+- Broker: Mosquitto (broker.emqx.io – MQTT real)
+- Tópico publicado: nivel/agua
 - Mensagem exemplo:
+
 ```json
 {
-  "nivel_agua_cm": 18,
-  "data": "2025-05-28 15:42:00"
+  "nivel_agua_cm": 0.0,
+  "data": "2025-05-28 22:30:00"
 }
 ```
 
 ## 3. Simulação
 
-- Como a Wokwi não permite envio real de pacotes MQTT, foi realizada uma simulação via `Serial.println()`, exibindo os dados no formato JSON, conforme se fossem publicados em um broker.
+- O Wokwi permite simulação de MQTT real, possibilitando testes diretos com um broker público
+- Configuração do ESP32 para envio de dados via Wi-Fi
+- Exibição das mensagens em tempo real no MQTT Explorer
 
 ## 4. Possível expansão real
 
-- Substituir o Serial pela biblioteca PubSubClient com autenticação
-- Configurar broker MQTT local ou na nuvem (ex: HiveMQ, Mosquitto ou AWS IoT Core)
+- Melhoria na segurança: Adicionar autenticação MQTT via TLS
+- Interface gráfica: Desenvolvimento de um dashboard web ou aplicativo móvel
+- Armazenamento de histórico: Implementação de banco de dados para análise de tendências
+- Notificações remotas: Envio de alertas via Telegram, e-mail ou integração com API externa
+
