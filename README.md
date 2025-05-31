@@ -8,9 +8,10 @@
 
 ## 📌 Descrição do Projeto
 
-Este projeto propõe o desenvolvimento de um sistema embarcado para **monitoramento automatizado do nível de água** em reservatórios. Utiliza um sensor ultrassônico HC-SR04 e um microcontrolador **Arduino Uno**, em conjunto com um módulo **ESP8266** para envio remoto dos dados via protocolo **MQTT**.
+Este projeto consiste em um sistema embarcado para monitoramento automatizado do nível de água em reservatórios. Ele utiliza um sensor ultrassônico HC-SR04 para medição e um ESP32 para processamento e comunicação via Wi-Fi, enviando os dados para um broker MQTT em tempo real.
+O nível de água é exibido em um display LCD 16x2 com interface I2C, permitindo acompanhamento local. Caso o nível fique abaixo de um limite mínimo, o ESP32 aciona automaticamente uma bomba de água (simulada por um LED) para reabastecimento.
+Além disso, o sistema possibilita monitoramento remoto via MQTT Explorer, garantindo acesso aos dados em tempo real.
 
-O nível de água é exibido em tempo real em um display LCD 16x2 com interface I2C, e as leituras são transmitidas por Wi-Fi em formato JSON simulado. Caso o nível detectado fique abaixo de um limite mínimo, o sistema aciona automaticamente uma bomba de água (simulada por um LED) como resposta preventiva.
 
 ---
 
@@ -21,61 +22,55 @@ O nível de água é exibido em tempo real em um display LCD 16x2 com interface 
    git clone https://github.com/seu-usuario/sistema-monitoramento-nivel-agua.git
 
 
-2. Abra o arquivo `codigo/sistema_nivel_agua.ino` na IDE do Arduino.
+- Abra o código na IDE do Arduino
+- Arquivo: codigo/sistema_nivel_agua.ino
+- Configure os parâmetros de Wi-Fi e MQTT no código-fonte
+- Defina SSID e senha para conexão Wi-Fi
+- Escolha um broker MQTT público, como broker.emqx.io
+- Execute a simulação no Wokwi
+- Certifique-se de que Internet (Simulated) está ativada
+- Acompanhe a leitura dos dados no dashboard do Wokwi e no MQTT Explorer
 
-3. Faça o upload para um Arduino Uno com os periféricos conectados conforme descrito em `/documentacao/descricao_hardware.md`.
-
-4. Acompanhe a simulação pelo display LCD e pelo Serial Monitor (MQTT simulado).
 
 ## 📂 Conteúdo do Repositório
 
-- `/codigo`: Código-fonte do sistema (.ino)
-- `/documentacao`: Documentação técnica (hardware, protocolos e comunicação)
-- `/imagens`: Imagens de componentes e fluxogramas
-- `README.md`: Instruções gerais
+- /codigo - Código-fonte do sistema (.ino)
+- /documentacao - Especificações técnicas e arquitetura do sistema
+- /imagens - Diagramas do circuito e prints da simulação
+- README.md - Instruções gerais
 
 ## 🧰 Hardware Utilizado
 
-Arduino Uno
+- ESP32 - Processamento e comunicação MQTT
+- Sensor Ultrassônico HC-SR04 - Medição do nível de água
+- Display LCD 16x2 com interface I2C - Exibição local das leituras
+- Módulo Relé - Controle da bomba de água
+- Bomba d'água (simulada por LED) - Representação do acionamento automático
+- Fonte de alimentação 5V independente - Alimentação do sistema
+- Protoboard e jumpers - Conexões do circuito
 
-Sensor Ultrassônico HC-SR04
-
-Módulo Wi-Fi ESP8266
-
-Display LCD 16x2 com interface I2C
-
-Bomba d'água (simulada por LED)
-
-Fonte de alimentação 5V independente
-
-Protoboard e jumpers
 
 
 ## 🌐 Comunicação via Internet (TCP/IP)
 
-Conectividade via Wi-Fi (ESP8266)
+- Wi-Fi embutido no ESP32
+- Protocolo MQTT para envio e recebimento de dados
+- Broker MQTT público (broker.emqx.io) para comunicação dos sensores
+- Publicação e subscrição em tópicos MQTT
+- Mensagens JSON enviadas em tempo real para monitoramento remoto
 
-Protocolo de mensagens: MQTT (utilizando broker.hivemq.com)
-
-Publicação e subscrição em tópicos específicos
-
-Mensagens em formato JSON (simulação no console Serial da Wokwi)
 
 
 
 ## 📊 Interface e Fluxo de Dados
 
-Medição do nível com o HC-SR04
+- Medição do nível de água com o HC-SR04
+- Processamento dos dados pelo ESP32
+- Exibição local no LCD I2C
+- Envio MQTT para broker público
+- Ação automática caso o nível esteja abaixo do mínimo (acionamento da bomba)
+- Visualização remota via MQTT Explorer e painel do Wokwi IoT Dashboard
 
-Processamento no Arduino Uno
-
-Exibição no LCD I2C
-
-Envio via MQTT para broker público
-
-Ação automática com base no nível (acionamento de bomba)
-
-Controle remoto adicional de LEDs via MQTT
 
 ## 📃 Licença
 
